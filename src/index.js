@@ -4,10 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { AuthProvider } from './contexts/AuthContext';
+import { PlatformsAuthProvider } from './contexts/PlatformsAuthContext';
+import { PostsProvider } from './contexts/PostsContext';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <AuthProvider>
+    <PlatformsAuthProvider>
+      <PostsProvider>
+        <App />
+      </PostsProvider>
+    </PlatformsAuthProvider>
+  </AuthProvider>,
   document.getElementById('root')
 );
 
